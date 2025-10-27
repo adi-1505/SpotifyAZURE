@@ -143,6 +143,10 @@
 				],
 				"userProperties": [],
 				"typeProperties": {
+					"expression": {
+						"value": "@greater(activity('AzureSQLToLake').output.dataRead,0)",
+						"type": "Expression"
+					},
 					"ifFalseActivities": [
 						{
 							"name": "Deleteemptyfile",
@@ -172,7 +176,7 @@
 										}
 									}
 								},
-								"enableLogging": true,
+								"enableLogging": false,
 								"storeSettings": {
 									"type": "AzureBlobFSReadSettings",
 									"recursive": true,
@@ -237,7 +241,7 @@
 										{
 											"name": "cdc",
 											"value": {
-												"value": "@activity('max_cdc').output.resultSets[0].rows[0].cdc\n",
+												"value": "@activity('max_cdc_copy1').output.resultSets[0].rows[0].cdc\r\n",
 												"type": "Expression"
 											}
 										}
